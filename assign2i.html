@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+<br>Add Paragraph here:
+   
+<div>
+    <textarea class="form-control" id="paraInput" rows="3"></textarea>
+</div>
+<div class="my-5">
+    <button type="button" class="btn btn-primary" onclick="countWords()">Count words..</button>
+    <button type="button" class="btn btn-primary" onclick="countLettersInCode()">Count letters..</button>
+    <button type="button" class="btn btn-primary" onclick="countSpaces()">Count Spaces..</button>
+    <button type="button" class="btn btn-primary" onclick="vowelCount()">Count Vowels..</button>
+    <button type="button" class="btn btn-primary" onclick="consonantsInString()">Count Consonant..</button>
+    <button type="button" class="btn btn-primary" onclick="toUpperCase()">Capitalize..</button>
+    <button type="button" class="btn btn-primary" onclick="toLowerCase()">Small letter..</button>
+    <button type="button" class="btn btn-primary" onclick="titalCase()">Tital case..</button>
+    <button type="button" class="btn btn-primary" onclick="countNewLine()">Count New Line..</button>
+    <button type="button" class="btn btn-primary" onclick="sortWords()">Sort Words..</button>
+
+   
+    
+</div>
+<p class="lead bg-secondary text-white" id="result">Result will be shown here..</p>
+
+<script>
+    function countWords() {
+        var str1 = document.getElementById('paraInput').value;
+        var arr1 = str1.split(/\s+/); // Split by whitespace to count words
+        document.getElementById('result').innerHTML = arr1.length;
+    }
+
+//letter count
+  
+
+
+    function countLettersInCode() {
+        // Remove non-alphabetic characters and convert to lowercase
+        var str2 = document.getElementById('paraInput').value;
+        str2 = str2.replace(/[^a-z]/ig, '').toLowerCase();
+
+        // Create an object to store letter counts
+        var letterCount = {};
+
+        // Iterate over each character in the code
+        for (var i = 0; i < str2.length; i++) {
+            var letter = str2[i];
+            // If the character is a letter
+            if (/[a-z]/.test(letter)) {
+                // Increment its count in the letterCount object
+                if (letterCount[letter]) {
+                    letterCount[letter]++;
+                } else {
+                    letterCount[letter] = 1;
+                }
+            }
+        }
+
+        // Display the letter count
+        document.getElementById('result').innerHTML = JSON.stringify(letterCount);
+    }
+
+
+function countSpaces() {
+    // Use a regular expression to match space characters (\s)
+    var str3 = document.getElementById('paraInput').value;
+    {
+    var spaceMatches = str3.match(/ /g);
+    
+    // If no matches found, return 0
+    if (!spaceMatches) {
+        
+document.getElementById('result').innerHTML = 0;
+        return 0;
+    }
+    
+
+document.getElementById('result').innerHTML = spaceMatches.length;
+    // Otherwise, return the number of matches (number of space characters)
+    return spaceMatches.length;
+}
+
+// Example usage:
+
+}
+
+function vowelCount() {
+    const str4 = document.getElementById('paraInput').value;
+	const vowelRegex = /[aeiou]/gi; 
+	const strMatches = str4.match(vowelRegex);
+
+	if (strMatches) {
+		const len = strMatches.length;
+		console.log("Number of vowels:", len);
+		document.getElementById("result").innerHTML = len;
+		return len;
+	} else {
+		console.log("Number of vowels: 0");
+		document.getElementById("result").innerHTML = "0";
+		return 0; 
+	}
+}
+
+
+
+function consonantsInString() { 
+    const str5 = document.getElementById('paraInput').value;
+const consonantsRegex = /[bcdfghjklmnpqrstvwxyz]/gi; 
+const checkString = str5.match(consonantsRegex); 
+const count = checkString ? checkString.length : 0; 
+document.getElementById("result").innerHTML = count;
+return count; 
+}
+
+function toUpperCase(){
+    const str6 = document.getElementById('paraInput').value;
+    let result = str6.toUpperCase();
+
+document.getElementById("result").innerHTML = result;
+}
+
+function toLowerCase(){
+    const str7 = document.getElementById('paraInput').value;
+    let result = str7.toLowerCase();
+
+document.getElementById("result").innerHTML = result;
+}
+
+
+function titalCase(){
+    let str8 = document.getElementById('paraInput').value;
+    str8 = str8.toLowerCase().split(' ');
+    for (var i = 0; i < str8.length; i++) {
+        str8[i] = str8[i].charAt(0).toUpperCase() + str8[i].slice(1); 
+    }
+    document.getElementById("result").innerHTML = str8.join(' ');
+    return str8.join(' ');
+}
+
+function countNewLine(){
+    let str9 = document.getElementById('paraInput').value;
+    lines = str9.split(/\r\n|\r|\n/);
+    document.getElementById("result").innerHTML = lines.length;
+return lines.length;
+}
+
+function sortWords(){
+    let str10 = document.getElementById('paraInput').value; 
+const sortedStr = str10.split("").sort().join(""); 
+document.getElementById("result").innerHTML = sortedStr; 
+console.log(sortedStr);  
+}
+</script>
+
+        
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
