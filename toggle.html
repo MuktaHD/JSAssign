@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Toggle</h1>
+    <p id="toggle">Lorem ipsum dolor sit amet consectetur adipisicing.</p>
+    <button onclick="toggleBold();">Normal to Bold</button>
+    <button id="toggleButton" onclick="toggleBackgroundColor();">Toggle Background Color</button>
+
+    <script>
+        function toggleBold(){
+            let toggle = document.getElementById("toggle");
+            toggle.style.fontWeight = toggle.style.fontWeight == "bold"? "normal" : "bold";
+        }
+
+        const color1 = "skyblue";
+        const color2 = "lightpink";
+        let isColor1 = true;
+        function toggleBackgroundColor() {
+            const toggleButton = document.getElementById("toggleButton");
+      
+        if (isColor1) {
+            document.body.style.backgroundColor = color2;
+            isColor1 = false;
+        } else {
+            document.body.style.backgroundColor = color1;
+            isColor1 = true;
+        }
+    }
+    </script>
+</body>
+</html>
