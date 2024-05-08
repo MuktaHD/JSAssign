@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .divClass{
+            width: 50%;
+            margin: 5px auto;
+            height: 300px;
+            background-color: aliceblue;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <ul id="parentUL"></ul>
+    <div id="parentDiv"></div>
+    <ul id="showFruits"></ul>
+    <button onclick="addItem();">Click to add Item</button>
+<script>
+    // function addItem() {
+    //     let li = document.createElement("li");
+    //     let input = document.createElement("input");
+    //     let button = document.createElement("button");
+    //     li.appendChild(input);
+    //     li.appendChild(button);
+    //     document.getElementById("showFruits").appendChild(li);
+    //     input.type = "text";
+    //     button.type = "button";
+    //     button.innerHTML = "Delete";
+    //     button.onclick = function() {
+    //         li.remove();
+    //     }
+    // }
+
+    function addItem(){
+        parentUL=document.getElementById('parentUL');
+        newLiItem=document.createElement('li');
+        textItem=document.createTextNode('New Item');
+        newLiItem.appendChild(textItem);
+        console.log(newLiItem);
+        parentUL.appendChild(newLiItem);
+//code for div
+parentDiv=document.getElementById('parentDiv');
+parentDiv.className='divClass';
+
+str="lorem ipsum dolor sit, amet ";
+newP=document.createElement('p');
+newP.innerHTML=str;
+perentDiv.appendChild(newP);
+
+arr = ['Mango','Chickoo','Apple'];
+parentUL1=document.querySelector('#showFruits');
+arr.forEach(element => {
+    liList=document.createElement('li');
+    liItem=document.createTextNode(element);
+    liList.appendChild(liItem);
+    parentUL1.appendChild(liList);
+});
+
+contact=[{name1:'John',email:'john@gmail.com',phone:985249124,add:'Pune'},
+{name1:'John',email:'john@gmail.com',phone:985249124,add:'Pune'},
+{name1:'John',email:'john@gmail.com',phone:985249124,add:'Pune'}];
+    contact.forEach(element => {
+        liList=document.createElement('li');
+        liItem=document.createTextNode(element.name1);
+        liList.appendChild(liItem);
+        parentUL1.appendChild(liList);
+    });
+}
+
+</script>
+
+
+</body>
+</html>
