@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
             renderTasks();
           }
         });
-  
+ 
         const removeBtn = document.createElement('button');
         removeBtn.classList.add('btn', 'btn-danger', 'btn-sm');
         removeBtn.textContent = 'Remove';
